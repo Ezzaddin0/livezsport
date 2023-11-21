@@ -2,7 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+
+@layer base {
+  /* :root { */
+    /* --color-bkg: 221deg, 51%, 16%!important;
+    --color-content: 0deg, 0%, 90%!important;
+
+    --color-accent1: 211deg, 100%, 12%!important;
+    --color-accent2: 216deg, 100%, 4%!important; */
+
+    /* --color-dark: rgb(0, 8, 20); */
+  /* } */
+  /* @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bkg: 0deg, 0%, 90%!important;
+      --color-content: 221deg, 51%, 16%!important;
+  
+      --color-accent1: 216deg, 100%, 4%!important;
+      --color-accent2: 211deg, 100%, 12%!important;
+    }
+  } */
+  /* :root[data-theme="dark"] {
+    --color-bkg: 0deg, 0%, 90%!important;
+    --color-content: 221deg, 51%, 16%!important;
+
+    --color-accent1: 216deg, 100%, 4%!important;
+    --color-accent2: 211deg, 100%, 12%!important;
+  }
+  :root[data-theme="light"] {
+    --color-bkg: 221deg, 51%, 16%!important;
+    --color-content: 0deg, 0%, 90%!important;
+
+    --color-accent1: 211deg, 100%, 12%!important;
+    --color-accent2: 216deg, 100%, 4%!important;
+  } */
+}
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -14,14 +50,400 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
+}
+
+.SideBar {
+  height: calc(100vh - 64px);
+}
+
+/* .accor-item {
+  text-wrap: wrap;
+} */
+
+@media not all and (min-width: 470px) { 
+  .info-element {
+    order: 2;
+  }
+  .match-item {
+    order: 3;
+  }
+}
+
+.scroll-shadows {
+  /* --bgRGB: 73, 89, 99; */
+  --bg: rgb(var(--bgRGB));
+  --bgTrans: rgba(var(--bgRGB), 0);
+  
+  --shadow: rgba(41, 50, 56, 0.5);
+  
+  max-height: 250px;
+  overflow: auto;
+
+  background:
+    /* Shadow Cover TOP */
+    linear-gradient(
+      var(--bg) -56%,
+      var(--bgTrans)
+    ) center top,
+    
+    /* Shadow Cover BOTTOM */
+    linear-gradient(
+      var(--bgTrans), 
+      var(--bg) 181%
+    ) center bottom,
+    
+    /* Shadow TOP */
+    radial-gradient(
+      farthest-side at 50% 0,
+      var(--shadow),
+      rgba(0, 0, 0, 0)
+    ) center top,
+    
+    /* Shadow BOTTOM */
+    radial-gradient(
+      farthest-side at 50% 100%,
+      var(--shadow),
+      rgba(0, 0, 0, 0)
+    ) center bottom;
+  
+  background-repeat: no-repeat;
+  background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+  background-attachment: local, local, scroll, scroll;
+}
+
+
+
+/* Not important to the functionality, just for this particular demo */
+.scroll-shadows {
+  list-style: none;
+  padding-right: 0.5rem;
+}
+.scroll-shadows > * {
+  padding: 0.2rem;
+}
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+/* body {
+  background: #455A64;
+  color: #CFD8DC;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  font: 500 100% system-ui, sans-serif;
+} */
+.scroll-shadows {
+  --scrollbarBG: transparent;
+  /* --thumbBG: #90a4ae; */
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+.scroll-shadows::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll-shadows::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+.scroll-shadows::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+
+.lineups {
+  background-image: url(./assets/images/soccer_field.png);
+  background-size: 100% 100%;
+}
+
+
+
+/* Carsouel Items */
+
+[class^="number-slide"],
+[class*=" number-slide"] {
+  /* background: grey; */
+  display: flex;
+  /* align-items: center; */
+  /* padding: 0 20px; */
+  justify-content: space-between;
+  /* font-size: 50px; */
+  color: #fff;
+  /* font-weight: 500; */
+  height: 250px;
+  max-height: 100vh;
+}
+
+/* .number-slide1 {
+  background: rgb(64, 175, 255);
+  background: linear-gradient(
+    128deg,
+    rgba(64, 175, 255, 1) 0%,
+    rgba(63, 97, 255, 1) 100%
+  );
+}
+
+.number-slide2 {
+  background: rgb(255, 75, 64);
+  background: linear-gradient(
+    128deg,
+    rgba(255, 154, 63, 1) 0%,
+    rgba(255, 75, 64, 1) 100%
+  );
+}
+
+.number-slide3 {
+  background: rgb(182, 255, 64);
+  background: linear-gradient(
+    128deg,
+    rgba(182, 255, 64, 1) 0%,
+    rgba(63, 255, 71, 1) 100%
+  );
+  background: linear-gradient(
+    128deg,
+    rgba(189, 255, 83, 1) 0%,
+    rgba(43, 250, 82, 1) 100%
+  );
+}
+
+.number-slide4 {
+  background: rgb(64, 255, 242);
+  background: linear-gradient(
+    128deg,
+    rgba(64, 255, 242, 1) 0%,
+    rgba(63, 188, 255, 1) 100%
+  );
+}
+
+.number-slide5 {
+  background: rgb(255, 64, 156);
+  background: linear-gradient(
+    128deg,
+    rgba(255, 64, 156, 1) 0%,
+    rgba(255, 63, 63, 1) 100%
+  );
+}
+
+.number-slide6 {
+  background: rgb(64, 76, 255);
+  background: linear-gradient(
+    128deg,
+    rgba(64, 76, 255, 1) 0%,
+    rgba(174, 63, 255, 1) 100%
+  );
+} */
+
+.navigation-wrapper {
+  position: relative;
+}
+
+.dots {
+  display: flex;
+  padding: 10px 0;
+  justify-content: center;
+}
+
+.dot {
+  border: none;
+  width: 10px;
+  height: 10px;
+  background: #c5c5c5;
+  border-radius: 50%;
+  margin: 0 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.dot:focus {
+  outline: none;
+}
+
+.dot.active {
+  background: #000;
+}
+
+.arrow {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  fill: #fff;
+  cursor: pointer;
+}
+
+.arrow--left {
+  left: 5px;
+}
+
+.arrow--right {
+  left: auto;
+  right: 5px;
+}
+
+.arrow--disabled {
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+
+
+
+
+/* Icons */
+.icon-svg {
+  font-size: 8px;
+}
+
+.icon-svg:before {
+  content: ' ';
+  vertical-align: middle;
+  display: inline-block;
+  background-image: url("./assets//images/sprite.svg");
+  background-repeat: no-repeat;
+  background-size: 13em 49.1em;
+}
+
+.no-svg .icon-svg:before {
+  background-image: url("./assets//images/sprite.svg");
+}
+
+.icon-svg.icon-corner-flag:before {
+  background-position: 0em 0em;
+  width: 1.5em;
+  height: 2em;
+}
+
+.icon-svg.icon-in:before {
+  background-position: 0em -2em;
+  width: 0.9em;
+  height: 1.2em;
+}
+
+.icon-svg.icon-injury:before {
+  background-position: 0em -3.2em;
+  width: 1.6em;
+  height: 1.6em;
+}
+
+.icon-svg.icon-keepers-glove:before {
+  background-position: 0em -4.8em;
+  width: 1.6em;
+  height: 2.2em;
+}
+
+.icon-svg.icon-offside-flag:before {
+  background-position: 0em -7em;
+  width: 2.2em;
+  height: 1.8em;
+}
+
+.icon-svg.icon-out:before {
+  background-position: 0em -8.8em;
+  width: 0.8em;
+  height: 1.1em;
+}
+
+.icon-svg.icon-red-card:before {
+  background-position: 0em -9.9em;
+  width: 1.2em;
+  height: 1.6em;
+}
+
+.icon-svg.icon-shirt:before {
+  background-position: 0em -11.5em;
+  width: 3.2em;
+  height: 3.2em;
+}
+
+.icon-svg.icon-shirt-alt:before {
+  background-position: 0em -14.7em;
+  width: 3.2em;
+  height: 3.2em;
+}
+
+.icon-svg.icon-soccer-ball:before {
+  background-position: 0em -17.9em;
+  width: 1.6em;
+  height: 1.6em;
+}
+
+.icon-svg.icon-soccer-ball-missed-penalty:before {
+  background-position: 0em -19.5em;
+  width: 1.8em;
+  height: 1.8em;
+}
+
+.icon-svg.icon-soccer-ball-own-goal:before {
+  background-position: 0em -21.3em;
+  width: 1.6em;
+  height: 1.6em;
+}
+
+.icon-svg.icon-soccer-ball-penalty:before {
+  background-position: 0em -22.9em;
+  width: 1.8em;
+  height: 1.8em;
+}
+
+.icon-svg.icon-soccer-gate:before {
+  background-position: 0em -24.7em;
+  width: 13em;
+  height: 12.2em;
+}
+
+.icon-svg.icon-soccer-shoe:before {
+  background-position: 0em -36.9em;
+  width: 2em;
+  height: 1.7em;
+}
+
+.icon-svg.icon-soccer-shots:before {
+  background-position: 0em -38.6em;
+  width: 1.4906000000000001em;
+  height: 1.638em;
+}
+
+.icon-svg.icon-stopwatch:before {
+  background-position: 0em -40.3em;
+  width: 1.7em;
+  height: 1.9em;
+}
+
+.icon-svg.icon-substitution:before {
+  background-position: 0em -42.2em;
+  width: 1.8em;
+  height: 1.7em;
+}
+
+.icon-svg.icon-trophy:before {
+  background-position: 0em -43.9em;
+  width: 1.8em;
+  height: 1.9em;
+}
+
+.icon-svg.icon-whistle:before {
+  background-position: 0em -45.8em;
+  width: 1.6em;
+  height: 1.7em;
+}
+
+.icon-svg.icon-yellow-card:before {
+  background-position: 0em -47.5em;
+  width: 1.2em;
+  height: 1.6em;
 }
