@@ -1,19 +1,18 @@
 // "use client"
 import Image from 'next/image'
-import {Button} from "@nextui-org/react";
-import Header from './components/Header';
-import {NextUIProvider} from "@nextui-org/react";
-import SideBar, { SidebarItem } from './components/SideBar';
-import { HeadToHeadIcon, HomeIcon, MatchesIcon, NewsIcon, SunIcon } from './assets/icons/Icon';
-import {ThemeProvider as NextThemesProvider} from "next-themes";
+// import {Button} from "@nextui-org/react";
+// import Header from './components/Header';
+// import {NextUIProvider} from "@nextui-org/react";
+// import SideBar, { SidebarItem } from './components/SideBar';
+// import { HeadToHeadIcon, HomeIcon, MatchesIcon, NewsIcon, SunIcon } from './assets/icons/Icon';
+// import {ThemeProvider as NextThemesProvider} from "next-themes";
 import imagPage from "./assets/images/imgPage.png"
 import { Metadata } from 'next'
-import iconWeb from "./assets/images/Ball.png"
 
 export const metadata: Metadata = {
   title: 'Home',
   description: "Stay updated with the latest sports news, live match scores, and detailed match game information. Get real-time updates on scores for matches happening all day. Find comprehensive details, team line-ups, goals, and highlights for your favorite games. Don't miss any action!",
-  icons: {iconWeb},
+  icons: "./assets/images/Ball.png",
   openGraph: {
     title: "Home",
     description: "Stay updated with the latest sports news, live match scores, and detailed match game information. Get real-time updates on scores for matches happening all day. Find comprehensive details, team line-ups, goals, and highlights for your favorite games. Don't miss any action!"
@@ -43,13 +42,12 @@ export default async function Home() {
   const DataPlayer = await getData();
   const player = DataPlayer.response;
 
-  console.log(player);
   
 
   return (
     <div className='home'>
       <div className='head-home flex flex-col items-center'>
-        <h1 className='text-4xl sm:text-6xl font-semibold text-center my-3'>Live<span className='text-red-600'>z</span>Sport</h1>
+        <h1 className='text-4xl sm:text-6xl font-semibold text-center my-3'>Live<span className='text-red-600'>Z</span>sport</h1>
 
         <p className='text-center lg:text-xl px-8 md:px-36 lg:px-52'>Discover the world of football on our website, offering the latest event news, match schedules, and live scores. Dive into head-to-head records and comprehensive team statistics, gaining valuable insights into their performance history. Your go-to destination for all things football, providing a comprehensive and convenient platform for fans to stay informed and engaged.</p>
 

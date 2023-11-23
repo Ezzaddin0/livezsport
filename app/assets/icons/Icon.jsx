@@ -55,7 +55,7 @@ export const ChevronRightIcon = (props) => (
 
 // Icons SideBar
 
-export const HomeIcon = (props) => (
+export const HomeIcon = ({ size, ...props }) => (
   <svg xmlns="http://www.w3.org/2000/svg" 
   width={(props.size)} 
   fill="currentColor" 

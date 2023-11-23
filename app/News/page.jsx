@@ -1,12 +1,12 @@
 // 'use client'
-import React, { useEffect, useState } from 'react'
+// import React, { useEffect, useState } from 'react'
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { Card, CardHeader, CardBody, CardFooter, Image } from '@nextui-org/react'
 import Link from 'next/link'
-import { Metadata } from 'next'
+// import { Metadata } from 'next'
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'News',
   description: "Stay updated with the latest sports news, live match scores, and detailed match game information. Get real-time updates on scores for matches happening all day. Find comprehensive details, team line-ups, goals, and highlights for your favorite games. Don't miss any action!",
 }
@@ -111,11 +111,7 @@ const page = async () => {
   )
 }
 
-function Arrow(props: {
-  disabled: boolean
-  left?: boolean
-  onClick: (e: any) => void
-}) {
+function Arrow() {
   const disabeld = props.disabled ? " arrow--disabled" : ""
   return (
     <svg

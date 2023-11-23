@@ -8,7 +8,6 @@ import { InfoIcon } from "../assets/icons/Icon";
 import DataTest from '../assets/json/matchesData.json'
 import Statistics from '../assets/json/statistics.json'
 import Event from '../assets/json/Event.json'
-import { log } from "console";
 import  statisticsData from "../assets/json/statisticsData.json";
 import soccer_field from "../assets/images/soccer_field.png"
 import lineupsData from "../assets/json/lineupsData.json"
@@ -24,7 +23,7 @@ export default function TabsComponents({ DataMatch }) {
 
   const Runs = ["First", "Second", "Extra", "Panlty"]
 
-  function EventsDataFun(arr: string | any[]) {
+  function EventsDataFun(arr) {
     const groups = {
       group1: [],
       group2: [],
@@ -69,7 +68,7 @@ export default function TabsComponents({ DataMatch }) {
     { name: 'Penalty confirmed', value: 'icon-soccer-ball-missed-penalty' },
   ];
 
-let previousTeamId: number | null = null;
+let previousTeamId = null;
 
 const [events, setEvents] = useState([])
   const [statistics, setStatickis] = useState([])
@@ -171,7 +170,7 @@ const Scheduled = res.filter((item) => item.fixture.status.short === "NS");
 
 
 
-function separateDuplicates(arr: string | any[]) {
+function separateDuplicates(arr) {
     const groups = {};
   
     // Loop through the array
@@ -221,7 +220,7 @@ function separateDuplicates(arr: string | any[]) {
                             >
                                 <table className="w-full ">
                                     <tbody>
-                                        {groups.map((data: { fixture: { status: { short: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; }; teams: { home: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.PromiseLikeOfReactNode | null | undefined; id: any; }; away: { id: any; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.PromiseLikeOfReactNode | null | undefined; }; }; goals: { home: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; away: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; }, index: React.Key | null | undefined) => {                                          
+                                        {groups.map((data, index) => {                                          
                                             
                                             return (
 
@@ -344,7 +343,7 @@ function separateDuplicates(arr: string | any[]) {
                             >
                                 <table className="w-full ">
                                     <tbody>
-                                        {groups.map((data: { fixture: { status: { short: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; }; teams: { home: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.PromiseLikeOfReactNode | null | undefined; id: any; }; away: { id: any; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.PromiseLikeOfReactNode | null | undefined; }; }; goals: { home: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; away: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; }, index: React.Key | null | undefined) => {
+                                        {groups.map((data, index) => {
                                             
                                             return (
 
@@ -467,7 +466,7 @@ function separateDuplicates(arr: string | any[]) {
                             >
                                 <table className="w-full ">
                                     <tbody>
-                                        {groups.map((data: { fixture: { status: { short: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; }; teams: { home: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.PromiseLikeOfReactNode | null | undefined; id: any; }; away: { id: any; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.PromiseLikeOfReactNode | null | undefined; }; }; goals: { home: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; away: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; }, index: React.Key | null | undefined) => {
+                                        {groups.map((data, index) => {
                                             
                                             return (
 
@@ -591,7 +590,7 @@ function separateDuplicates(arr: string | any[]) {
                             >
                                 <table className="w-full ">
                                     <tbody>
-                                        {groups.map((data: { fixture: { status: { short: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; }; teams: { home: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.PromiseLikeOfReactNode | null | undefined; id: any; }; away: { id: any; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.PromiseLikeOfReactNode | null | undefined; }; }; goals: { home: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; away: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; }, index: React.Key | null | undefined) => {
+                                        {groups.map((data, index) => {
                                             
                                             return (
 
@@ -755,7 +754,7 @@ function separateDuplicates(arr: string | any[]) {
 
                             return (
 
-                            <Table removeWrapper  aria-label="Example static collection table">
+                            <Table key={index} removeWrapper  aria-label="Example static collection table">
                             <TableHeader>
                               <TableColumn className="text-center">{Runs[index]} Half</TableColumn>
                               {/* <TableColumn>ROLE</TableColumn>
@@ -779,7 +778,7 @@ function separateDuplicates(arr: string | any[]) {
                                 return (
                                   <TableRow key={index}>
                                     <TableCell className={isSameTeam ? "flex flex-row-reverse" : ""}>
-                                      <small className="text-default-500"> {data.time.elapsed}' </small>
+                                      <small className="text-default-500"> {data.time.elapsed}&apos; </small>
                                        <i className={`icon-svg ${variableValue} mx-1`}></i>
                                        {data.player.name} 
                                        <small className="text-default-500"> {data.assist.name} </small>
@@ -843,7 +842,7 @@ function separateDuplicates(arr: string | any[]) {
                             
                             
                             return (
-                              <div className={` col-span-4 flex items-center w-full h-full`}>
+                              <div key={indexTeam} className={` col-span-4 flex items-center w-full h-full`}>
                                 {team.formation.split("-").map((colsTeam,index) => {
                                   
                                   let shirtElements = [];
@@ -856,7 +855,7 @@ function separateDuplicates(arr: string | any[]) {
                                   }
                                   
                                   return (
-                                    <div className={`w-full h-full flex flex-col justify-around items-center px-3`}>
+                                    <div key={index} className={`w-full h-full flex flex-col justify-around items-center px-3`}>
                                       {shirtElements}
                                     </div>
                                   )
@@ -878,7 +877,7 @@ function separateDuplicates(arr: string | any[]) {
                         {lineups.map((data,index) => {
 
                           return (
-                            <div className=" w-full">
+                            <div key={index} className=" w-full">
                               <div className="head bg-gray-200/10 px-2 rounded-sm flex items-center justify-between">
                                 <div className="flex items-center">
                                 <h2>{data.team.name}</h2>
@@ -902,7 +901,7 @@ function separateDuplicates(arr: string | any[]) {
                                 {data.startXI.map((startxi,index) => {
 
                                   return (
-                                    <p className="p-2"><span className=" text-gray-500 pr-4">{startxi.player.number}</span>{startxi.player.name}</p>
+                                    <p key={index} className="p-2"><span className=" text-gray-500 pr-4">{startxi.player.number}</span>{startxi.player.name}</p>
                                   )
                                 })}
                               </div>
@@ -912,7 +911,7 @@ function separateDuplicates(arr: string | any[]) {
                                 {data.substitutes.map((sub,index) => {
 
                                   return (
-                                    <p className="p-2"><span className=" text-gray-500 pr-4">{sub.player.number}</span>{sub.player.name}</p>
+                                    <p key={index} className="p-2"><span className=" text-gray-500 pr-4">{sub.player.number}</span>{sub.player.name}</p>
                                   )
                                 })}
                               </div>
@@ -930,7 +929,7 @@ function separateDuplicates(arr: string | any[]) {
 
                           return (
 
-                        <Table removeWrapper  aria-label="Example static collection table">
+                        <Table key={index} removeWrapper  aria-label="Example static collection table">
                           <TableHeader>
                             <TableColumn>
                               <Image

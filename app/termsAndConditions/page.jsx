@@ -11,7 +11,7 @@ const termsAndConditions = () => {
     <div className=' text-base p-4'>
         <p className=' text-4xl mb-5'>Terms and Conditions - LiveZSport</p>
 
-        Welcome to LiveZSport! These Terms and Conditions ("Terms") govern your use of our website, LiveZSport, which provides sports scores, football updates, and the latest news ("Services"). By accessing or using our website, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please refrain from using our website.
+        Welcome to LiveZSport! These Terms and Conditions (&quot;Terms&quot;) govern your use of our website, LiveZSport, which provides sports scores, football updates, and the latest news (&quot;Services&quot;). By accessing or using our website, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please refrain from using our website.
 
         Use of the Services
         1.1 Eligibility: You must be at least 18 years old or have the legal capacity to enter into a contract in your jurisdiction to use our website. By using LiveZSport, you represent and warrant that you meet these eligibility requirements.

@@ -7,7 +7,7 @@ import { useRouter, usePathname } from 'next/navigation'
 
 const SidebarContext = createContext() // <--------------
 
-export default function Sidebar({ children }: {children: React.ReactNode}) {
+export default function Sidebar({ children }) {
   const [expanded, setExpanded] = useState(false)
 
   
@@ -59,15 +59,15 @@ export default function Sidebar({ children }: {children: React.ReactNode}) {
   )
 }
 
-interface SidebarItemProps {
-   icon: string;
-   text: string;
-   active: boolean;
-   alert?: string;
-   href?: string
- }
+// interface SidebarItemProps {
+//    icon: string;
+//    text: string;
+//    active: boolean;
+//    alert?: string;
+//    href?: string
+//  }
 
-export function SidebarItem({ icon, text, active, alert, href }: SidebarItemProps) {
+export function SidebarItem({ icon, text, active, alert, href }) {
   const { expanded } = useContext(SidebarContext)
 
   const router = useRouter()

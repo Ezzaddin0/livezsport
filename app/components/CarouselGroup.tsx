@@ -6,11 +6,11 @@ import "keen-slider/keen-slider.min.css"
 
 import { Card, CardBody, CardFooter, CardHeader, Divider, Image, Link, User } from '@nextui-org/react';
 
-const CarouselGroup = ({ DataMatch }) => {
+const CarouselGroup = ({ DataMatch }: any) => {
 
   const res = DataMatch.response;
 
-  const live = res.filter((item) => item.fixture.status.short === "2H" || item.fixture.status.short === "1H" || item.fixture.status.short === "HT");
+  const live = res.filter((item: { fixture: { status: { short: string; }; }; }) => item.fixture.status.short === "2H" || item.fixture.status.short === "1H" || item.fixture.status.short === "HT");
 
     const testLoop = ['', '', '', '', '', '', '', '', '']
 
@@ -43,10 +43,10 @@ const CarouselGroup = ({ DataMatch }) => {
         <>
         <div className="navigation-wrapper !hidden md:!block max-w-[91vw] lg:max-w-[90vw] max-lg:max-w-[89vw] pb-4">
             <div ref={sliderRef} className="keen-slider rounded-sm">
-                {live.map(data => {
+                {live.map((data: { league: { country: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; name: any; round: any; flag: any; logo: any; }; teams: { home: { id: any; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; away: { id: any; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; }; goals: { home: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; away: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; fixture: { status: { elapsed: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; }; },index: React.Key | null | undefined) => {
 
                     return (
-                <div className="keen-slider__slide number-slide1 rounded-sm !min-w-[50%] !max-w-[100%]">
+                <div key={index} className="keen-slider__slide number-slide1 rounded-sm !min-w-[50%] !max-w-[100%]">
                     <Card fullWidth={true}>
                         <CardHeader className="flex gap-3">
                             <User   
@@ -72,7 +72,7 @@ const CarouselGroup = ({ DataMatch }) => {
 
                                 <div className=' flex flex-col items-center gap-3'>
                                     <p className=' text-4xl'>{data.goals.home} - {data.goals.away}</p>
-                                    <p className=' bg-blue-900 px-6 py-1 rounded-2xl'>{data.fixture.status.elapsed}'</p>
+                                    <p className=' bg-blue-900 px-6 py-1 rounded-2xl'>{data.fixture.status.elapsed}&apos;</p>
                                 </div>
 
                                 <div>
@@ -141,7 +141,7 @@ const CarouselGroup = ({ DataMatch }) => {
 
                                 <div className=' flex flex-col items-center gap-3'>
                                     <p className=' text-4xl'>5 - 1</p>
-                                    <p className=' bg-blue-900 px-6 py-1 rounded-2xl'>87'</p>
+                                    <p className=' bg-blue-900 px-6 py-1 rounded-2xl'>87&apos;</p>
                                 </div>
 
                                 <div>
