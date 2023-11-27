@@ -9,6 +9,14 @@ import Link from 'next/link'
 export const metadata = {
   title: 'News',
   description: "Stay updated with the latest sports news, live match scores, and detailed match game information. Get real-time updates on scores for matches happening all day. Find comprehensive details, team line-ups, goals, and highlights for your favorite games. Don't miss any action!",
+  
+  openGraph: {
+    title: "News",
+    description: "Stay updated with the latest sports news, live match scores, and detailed match game information. Get real-time updates on scores for matches happening all day. Find comprehensive details, team line-ups, goals, and highlights for your favorite games. Don't miss any action!"
+  },
+  alternates: {
+    canonical: "/News"
+  }
 }
 
 

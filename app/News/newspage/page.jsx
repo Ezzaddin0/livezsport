@@ -4,6 +4,23 @@ import { Image } from '@nextui-org/react';
 import Link from 'next/link';
 import React from 'react'
 
+export async function generateMetadata({  searchParams }) {
+  // read route params
+  
+  return {
+    title: searchParams.title,
+    description: searchParams.content,
+    openGraph: {
+      title: searchParams.title,
+      description: searchParams.content
+    },
+    alternates: {
+      canonical: `/News/newspage?${searchParams.title}`
+    }
+    
+  }
+}
+
 const page = async ({searchParams}) => {
   const newsTitle = searchParams?.title;
   // const news = await getSingleNews(newsTitle)

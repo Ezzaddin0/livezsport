@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Home",
     description: "Stay updated with the latest sports news, live match scores, and detailed match game information. Get real-time updates on scores for matches happening all day. Find comprehensive details, team line-ups, goals, and highlights for your favorite games. Don't miss any action!"
+  },
+  alternates: {
+    canonical: "https://www.livezsport.com"
   }
 }
 

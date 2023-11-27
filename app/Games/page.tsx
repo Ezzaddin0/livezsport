@@ -5,8 +5,15 @@ import CarouselGroup from '../components/CarouselGroup'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Matches',
-  description: '...',
+  title: 'Games',
+  description: "Stay updated with the latest football matches happening today. Get live scores, detailed statistics, and exciting event highlights for all matches. Follow your favorite teams and stay informed about goals, assists, cards, and more. Don't miss out on the action - check out our comprehensive coverage of today's football matches now",
+  openGraph: {
+    title: "Games",
+    description: "Stay updated with the latest football matches happening today. Get live scores, detailed statistics, and exciting event highlights for all matches. Follow your favorite teams and stay informed about goals, assists, cards, and more. Don't miss out on the action - check out our comprehensive coverage of today's football matches now"
+  },
+  alternates: {
+    canonical: "/Games"
+  }
 }
 
 const page = async () => {

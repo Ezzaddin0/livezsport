@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from "react";
 // import Image from 'next/image'
-import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, Spinner, getKeyValue, Card, CardBody, Tab, Tabs, Accordion, AccordionItem, Image, Avatar, Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure, ScrollShadow, CardFooter, Link, User, Progress, Tooltip} from "@nextui-org/react";
+import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, Spinner, getKeyValue, Card, CardBody, Tab, Tabs, Accordion, AccordionItem, Image, Avatar, Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure, ScrollShadow, CardFooter, User, Progress, Tooltip} from "@nextui-org/react";
 import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 import {useAsyncList} from "@react-stately/data";
 import { InfoIcon } from "../assets/icons/Icon";
@@ -13,9 +13,11 @@ import soccer_field from "../assets/images/soccer_field.png"
 import lineupsData from "../assets/json/lineupsData.json"
 import playerStatis from "../assets/json/playerStatistics.json"
 import axios from "axios";
+import { useRouter } from 'next/navigation'
 
 
 export default function TabsComponents({ DataMatch }) {
+  const router = useRouter()
 
   const res = DataMatch.response;
   
@@ -151,6 +153,8 @@ const [matchData, setMatchData] = useState(null);
 function modalFunction(data,id) {
   setMatchData(data)
   fetchDataModal(id)
+  router.push(`/Games/?league=${data.league.name}?match=${data.teams.home.name}vs${data.teams.away.name}`)
+  
   // console.log(id);
   
   // console.log(data);
@@ -666,6 +670,7 @@ function separateDuplicates(arr) {
                                                         </div>
                                                 </div>
                                             </th>
+                                            {/* <Link href={`/Games/?league=${data.league.name}?match=${data.teams.home.name}vs${data.teams.away.name}`}> */}
                                             <th className="info-element text-end">
                                                 <Button aria-label="Info" isIconOnly size="sm" radius="lg" variant="light" onClick={() => modalFunction(data, data.fixture.id)} onPress={onOpen}>
                                                     
@@ -673,6 +678,7 @@ function separateDuplicates(arr) {
                                                 </Button>
                                                 
                                             </th>
+                                            {/* </Link> */}
                                         </tr>
                                             )
                                         } )}
