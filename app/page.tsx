@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: "Stay updated with the latest sports news, live match scores, and detailed match game information. Get real-time updates on scores for matches happening all day. Find comprehensive details, team line-ups, goals, and highlights for your favorite games. Don't miss any action!",
   icons: "./assets/images/Ball.png",
   openGraph: {
-    title: "Home",
+    title: "Livezsport.com - live soccer scores, football, and more ...",
     description: "Stay updated with the latest sports news, live match scores, and detailed match game information. Get real-time updates on scores for matches happening all day. Find comprehensive details, team line-ups, goals, and highlights for your favorite games. Don't miss any action!"
   },
   alternates: {
