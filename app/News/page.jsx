@@ -1,6 +1,5 @@
 // 'use client'
 // import React, { useEffect, useState } from 'react'
-import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { Card, CardHeader, CardBody, CardFooter, Image } from '@nextui-org/react'
 import Link from 'next/link'
@@ -21,7 +20,7 @@ export const metadata = {
 
 
 const getNews = async () => {
-  const res = await fetch("https://newsapi.org/v2/everything?q=football&from=2023-11-15&to=2023-11-15&sortBy=popularity&pageSize=20&page=1&apiKey=b3b3280d1f9a4f6f88f746366c54d67d");
+  const res = await fetch(`https://newsapi.org/v2/everything?q=football&from=${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()-3}&to=${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}&sortBy=popularity&pageSize=20&page=1&apiKey=${process.env.NEWS_API_KEY}`);
 
   if(!res.ok) {
       throw new Error("Failed to fetch data");
@@ -29,74 +28,23 @@ const getNews = async () => {
   return res.json()
 }
 
+
 const page = async () => {
 
   const News = await getNews();
-  // const [news, setNews] = useState([]);
 
-  // async function  data() {
-  //   const response = await fetch(`https://newsapi.org/v2/everything?q=football&from=2023-11-05&to=2023-11-05&sortBy=popularity&pageSize=20&page=1&apiKey=b3b3280d1f9a4f6f88f746366c54d67d
-  //   `)
-  //   const data = await response.json()
-  //   const results = data.articles;
-        
-  //   setNews(results)
-  //   console.log(results);
-  // }
 
-  // useEffect(() => {
-  //   data()
-    
-    
-    
-    
-  // },[])
-
-  // const [currentSlide, setCurrentSlide] = React.useState(0)
-  // const [loaded, setLoaded] = useState(false)
-  // const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-  //   initial: 0,
-  //   slideChanged(slider) {
-  //     setCurrentSlide(slider.track.details.rel)
-  //   },
-  //   created() {
-  //     setLoaded(true)
-  //   },
-  // })
   return (
     <div className=''>
-      {/* <div className="navigation-wrapper">
-        <div className="keen-slider p-2 rounded max-w-[91vw] lg:max-w-[93vw]">
-          {News.articles.slice(0, 9).map((data,index) => {
-
-            return (
-              <div className="keen-slider__slide number-slide1 !h-80 rounded">
-                <Image
-                src={data.urlToImage}
-                alt={data.title}
-                fallbackSrc="https://via.placeholder.com/300x200"
-                width={1200}
-                height={250}
-                />
-          </div>
-            )
-          })}
-        </div>
-        
-      </div> */}
+      
       <div className='CardNews grid gap-3 py-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
         {News.articles.map((data,index) => {       
-          // console.log(data);
              
 
           return (
-            <Link href={{pathname: "/News/newspage", query: {title: data?.title, description: data?.description, urlToImage: data?.urlToImage, publishedAt: data?.publishedAt, content: data?.content, url: data?.url, author: data?.author} }} key={index}>
+            <Link href={{pathname: `/News/${data.title}`, query: {title: data?.title, description: data?.description, urlToImage: data?.urlToImage, publishedAt: data?.publishedAt, content: data?.content, url: data?.url, author: data?.author} }} key={index}>
             <Card key={index} className="py-4 max-sm:mx-4 ">
-              {/* <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                <p className="text-tiny uppercase font-bold">Daily Mix</p>
-                <small className="text-default-500">12 Tracks</small>
-                <h4 className="font-bold text-large">Frontend Radio</h4>
-              </CardHeader> */}
+              
               <CardBody key={index} className="overflow-visible">
                 <Image
                   alt="Card background"

@@ -8,7 +8,6 @@ export const metadata = {
 
 const privacyPolicy = () => {
 
-  console.log("https://v3.football.api-sports.io/fixtures?date=" + new Date().getFullYear() + "-" + (new Date().getMonth()+1) + "-" + new Date().getDate())
   return (
     <div className='p-4 text-2xl'>
         <h2>privacy Policy</h2>

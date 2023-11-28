@@ -1,32 +1,25 @@
-// 'use client'
 import { getSingleNews } from '@/app/helpers';
 import { Image } from '@nextui-org/react';
-import Link from 'next/link';
-import React from 'react'
+import Link from 'next/link'
 
 export async function generateMetadata({  searchParams }) {
-  // read route params
-  
-  return {
-    title: searchParams.title,
-    description: searchParams.content,
-    openGraph: {
-      title: searchParams.title,
-      description: searchParams.content
-    },
-    alternates: {
-      canonical: `/News/newspage?${searchParams.title}`
-    }
+    // read route params
     
-  }
+    return {
+      title: searchParams.title,
+      description: searchParams.content,
+      openGraph: {
+        title: searchParams.title,
+        description: searchParams.content
+      },
+      alternates: {
+        canonical: `/News/${searchParams.title}`
+      }
+      
+    }
 }
 
-const page = async ({searchParams}) => {
-  const newsTitle = searchParams?.title;
-  // const news = await getSingleNews(newsTitle)
-
-  // console.log(searchParams);
-    
+const Post = async ({ searchParams }) => {
   return (
     <div className='p-4'>
       <h1 className='mb-3 text-2xl font-bold'>{searchParams.title}</h1>
@@ -44,4 +37,4 @@ const page = async ({searchParams}) => {
   )
 }
 
-export default page
+export default Post
