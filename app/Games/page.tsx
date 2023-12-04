@@ -18,9 +18,11 @@ export const metadata: Metadata = {
 
 const page = async () => {
 
+  const date = new Date();
+
   var DataMatch = []
 
-  const url = `https://v3.football.api-sports.io/fixtures?date=${new Date().getFullYear()}-${(new Date().getMonth()+1)}-${new Date().getDate()}`;
+  const url = `https://v3.football.api-sports.io/fixtures?date=${date.getFullYear()}-${date.getMonth()+1 < 10 ? "0"+ date.getMonth()+1 : date.getMonth()+1}-${date.getDate() < 10 ? "0"+ date.getDate() : date.getDate()}`;
   const options = {
     method: 'GET',
     headers: {
@@ -38,12 +40,17 @@ const page = async () => {
   } catch (error) {
     console.error(error);
   }
+  const live = DataMatch.response.filter((item: { fixture: { status: { short: string; }; }; }) => item.fixture.status.short === "2H" || item.fixture.status.short === "1H" || item.fixture.status.short === "HT");
+  
   
 
     
   return (
     <div className=' p-2'>
+      {live.length > 0 &&
+      
         <CarouselGroup DataMatch={DataMatch}/>
+      }
         <TabsComponents DataMatch={DataMatch}/>
     </div>
   )

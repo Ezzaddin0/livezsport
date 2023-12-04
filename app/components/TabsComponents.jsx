@@ -4,16 +4,16 @@ import React, { useEffect, useState } from "react";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, Spinner, getKeyValue, Card, CardBody, Tab, Tabs, Accordion, AccordionItem, Image, Avatar, Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure, ScrollShadow, CardFooter, User, Progress, Tooltip} from "@nextui-org/react";
 import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 import {useAsyncList} from "@react-stately/data";
-import { InfoIcon } from "../assets/icons/Icon";
+import { InfoIcon, UserIcon } from "../assets/icons/Icon";
 import DataTest from '../assets/json/matchesData.json'
 import Statistics from '../assets/json/statistics.json'
 import Event from '../assets/json/Event.json'
 import  statisticsData from "../assets/json/statisticsData.json";
 import soccer_field from "../assets/images/soccer_field.png"
 import lineupsData from "../assets/json/lineupsData.json"
-import playerStatis from "../assets/json/playerStatistics.json"
 import axios from "axios";
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 
 export default function TabsComponents({ DataMatch }) {
@@ -153,7 +153,7 @@ const [matchData, setMatchData] = useState(null);
 function modalFunction(data,id) {
   setMatchData(data)
   fetchDataModal(id)
-  router.push(`/Games/?league=${data.league.name}?match=${data.teams.home.name}vs${data.teams.away.name}`)
+  // router.push(`/Games/?league=${data.league.name}?match=${data.teams.home.name}vs${data.teams.away.name}`)
   
   // console.log(id);
   
@@ -328,6 +328,7 @@ function separateDuplicates(arr) {
                         <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-wrap dark:text-white">
                         <Accordion isCompact variant="splitted" defaultExpandedKeys={["0"]}>
                             {separateDuplicates(live).map((groups, index) => {
+                              // console.log(groups);
 
                                 return (
                             <AccordionItem 
@@ -424,10 +425,12 @@ function separateDuplicates(arr) {
                                                 </div>
                                             </th>
                                             <th className="info-element text-end">
-                                                <Button aria-label="Info" isIconOnly size="sm" radius="lg" variant="light" onClick={() => modalFunction(data, data.fixture.id)} onPress={onOpen}>
+                                              {/* <Link href={{pathname: `/Games/${data.teams.home.name}vs${data.teams.away.name}&${data.league.name}&${data.league.country}`, query: {id: data.fixture.id, countryLeague: data.league.country, nameLeague: data.league.name, roundLeague: data.league.round, logoLeague: data.league.logo, homeName: data.teams.home.name, homeId: data.teams.home.id, fixtureDate: data.fixture.date, homeGoals: data.goals.home, awayGoals: data.goals.away, statusLong: data.fixture.status.long, venueName: data.fixture.venue.name, referee: data.fixture.referee, awayName: data.teams.away.name, awayId: data.teams.away.id, isOpen: isOpen, onOpenChange: onOpenChange}}}> */}
+                                                <Button aria-label="Info" isIconOnly size="sm" radius="lg" onClick={() => modalFunction(data, data.fixture.id)} variant="light" onPress={onOpen}>
                                                     
                                                 <InfoIcon className="cursor-pointer" size="20" />
                                                 </Button>
+                                              {/* </Link> */}
                                                 
                                             </th>
                                         </tr>
@@ -699,7 +702,7 @@ function separateDuplicates(arr) {
         <ModalContent>
           {() => (
             <>
-              <ModalHeader className="flex items-center">
+              <ModalHeader className="flex items-center justify-between">
               <User   
                 name={`${matchData?.league?.country}: ${matchData?.league?.name}`}
                 description={matchData?.league?.round || "League Name"}
@@ -707,6 +710,9 @@ function separateDuplicates(arr) {
                   src: `${matchData?.league?.logo}`
                 }}
               />
+              <Button color="primary" onClick={() => router.push(`/Games/${matchData.fixture.id}`)} size="sm" variant="ghost" className="mr-4 capitalize">
+                more details
+              </Button>
               </ModalHeader>
               <ScrollShadow hideScrollBar className=" h-3/4">
               <ModalBody>
