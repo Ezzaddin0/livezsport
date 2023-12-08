@@ -21,7 +21,10 @@ export default function TabsComponents({ DataMatch }) {
 
   const res = DataMatch.response;
   
-  
+  // const handleClick = () => {
+  //   const path = `/Games/${matchData.fixture.id}`;
+  //   router.push(path);
+  // };
 
   const Runs = ["First", "Second", "Extra", "Panlty"]
 
@@ -152,19 +155,16 @@ const {isOpen, onOpen, onOpenChange} = useDisclosure();
 const [matchData, setMatchData] = useState(null);
 function modalFunction(data,id) {
   setMatchData(data)
-  fetchDataModal(id)
-  // router.push(`/Games/?league=${data.league.name}?match=${data.teams.home.name}vs${data.teams.away.name}`)
-  
-  // console.log(id);
-  
-  // console.log(data);
-  // console.log(events);
-  // console.log(statistics);
-  // console.log(lineups);
-  // console.log(playersSt);
-  // console.log(statisticsData);
+  fetchDataModal(id) 
 }
 
+const linkComponent = matchData ? (
+  <Link href={`/Games/${matchData.fixture.id}`}>
+    <Button color="primary"  size="sm" variant="ghost" className="mr-4 capitalize">
+      more details
+    </Button>
+  </Link>
+) : null;
 
 const live = res.filter((item) => item.fixture.status.short === "2H" || item.fixture.status.short === "1H" || item.fixture.status.short === "HT");
 
@@ -710,9 +710,12 @@ function separateDuplicates(arr) {
                   src: `${matchData?.league?.logo}`
                 }}
               />
-              <Button color="primary" onClick={() => router.push(`/Games/${matchData.fixture.id}`)} size="sm" variant="ghost" className="mr-4 capitalize">
+              {/* <Link href={`/Games/${matchData.fixture.id}`}> */}
+              {/* <Button color="primary" onClick={handleClick}  size="sm" variant="ghost" className="mr-4 capitalize">
                 more details
-              </Button>
+              </Button> */}
+              {/* </Link> */}
+              {linkComponent}
               </ModalHeader>
               <ScrollShadow hideScrollBar className=" h-3/4">
               <ModalBody>

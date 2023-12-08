@@ -1,5 +1,6 @@
 import React from 'react'
 import { Metadata } from 'next'
+import Script from 'next/script'
 
 export const metadata = {
   title: 'Terms and Conditions',
@@ -9,6 +10,8 @@ export const metadata = {
 const termsAndConditions = () => {
   return (
     <div className=' text-base p-4'>
+      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9613838390292158"
+     crossOrigin="anonymous"/>
         <p className=' text-4xl mb-5'>Terms and Conditions - LiveZSport</p>
 
         Welcome to LiveZSport! These Terms and Conditions (&quot;Terms&quot;) govern your use of our website, LiveZSport, which provides sports scores, football updates, and the latest news (&quot;Services&quot;). By accessing or using our website, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please refrain from using our website.

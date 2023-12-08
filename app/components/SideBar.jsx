@@ -12,7 +12,7 @@ export default function Sidebar({ children }) {
 
   
   return (
-    <aside>
+    <aside className=" relative z-50">
       <nav className="h-full flex flex-col dark:bg-gray-900 dark:text-white light:bg-white border-r shadow-sm">
         <div className="p-4 pb-2 flex justify-between items-center max-sm:absolute top-0 left-0 z-50">
           <button

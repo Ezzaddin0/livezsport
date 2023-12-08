@@ -1,6 +1,7 @@
 import { getSingleNews } from '@/app/helpers';
 import { Image } from '@nextui-org/react';
 import Link from 'next/link'
+import Script from 'next/script'
 
 export async function generateMetadata({  searchParams }) {
     // read route params
@@ -22,6 +23,8 @@ export async function generateMetadata({  searchParams }) {
 const Post = async ({ searchParams }) => {
   return (
     <div className='p-4'>
+      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9613838390292158"
+     crossOrigin="anonymous"/>
       <h1 className='mb-3 text-2xl font-bold'>{searchParams.title}</h1>
       <Image
       src={searchParams.urlToImage}

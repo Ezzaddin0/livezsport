@@ -8,6 +8,7 @@ import Image from 'next/image'
 // import {ThemeProvider as NextThemesProvider} from "next-themes";
 import imagPage from "./assets/images/imgPage.png"
 import { Metadata } from 'next'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'Livezsport.com - live soccer scores, football, and more ...',
@@ -49,6 +50,8 @@ export default async function Home() {
 
   return (
     <div className='home'>
+      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9613838390292158"
+     crossOrigin="anonymous"/>
       <div className='head-home flex flex-col items-center'>
         <h1 className='text-4xl sm:text-6xl font-semibold text-center my-3'>Live<span className='text-red-600'>Z</span>sport</h1>
 

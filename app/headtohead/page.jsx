@@ -1,5 +1,6 @@
 import React from 'react'
 import { Metadata } from 'next'
+import Script from 'next/script'
 
 export const metadata = {
   title: 'Head To Head',
@@ -15,6 +16,8 @@ export const metadata = {
 const HeadToHead = () => {
   return (
     <div className=' h-screen flex items-center justify-center'>
+      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9613838390292158"
+     crossOrigin="anonymous"/>
         <p className=' text-center text-5xl font-semibold'>Comming Soon</p>
     </div>
   )

@@ -12,8 +12,14 @@ import GoogleAnalytics from "./GoogleAnalytics"
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Livezsport.com - live soccer scores, football, and more ...',
+  title: {
+    default: "Livezsport.com - live soccer scores, football, and more ...",
+    template: `%s | Livezsport`
+  },
   description: "Stay updated with the latest sports news, live match scores, and detailed match game information. Get real-time updates on scores for matches happening all day. Find comprehensive details, team line-ups, goals, and highlights for your favorite games. Don't miss any action!",
+  verification: {
+    google: "google-site-verification=o1MR0g-6fJgHF5kXZxPSZIykDOiBuxY8HNhSGlVvTF0"
+  },
   openGraph: {
     title: "Livezsport.com - live soccer scores, football, and more ...",
     description: "Stay updated with the latest sports news, live match scores, and detailed match game information. Get real-time updates on scores for matches happening all day. Find comprehensive details, team line-ups, goals, and highlights for your favorite games. Don't miss any action!"

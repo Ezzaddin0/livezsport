@@ -16,6 +16,24 @@ export default async function sitemap() {
         lastModified: post.publishedAt
     }))
 
+  const date = new Date();
+  const match = await fetch(`https://v3.football.api-sports.io/fixtures?date=${date.getFullYear()}-${date.getMonth()+1 < 10 ? "0"+ date.getMonth()+1 : date.getMonth()+1}-${date.getDate() < 10 ? "0"+ date.getDate() : date.getDate()}`, {
+      "method": "GET",
+      "headers": {
+          "x-rapidapi-host": "v3.football.api-sports.io",
+          "x-rapidapi-key": `${process.env.REACT_APP_API_KEY}`
+      }
+  })
+  const resMatch = await match.json()
+  
+
+  const resMa = resMatch.response.map((data: {
+      fixture: any;
+    id: any; date: any; 
+}) => ({
+    url: `${baseUrl}/Games/${data.fixture.id}`,
+    lastModified: data.fixture.date
+}))
     
 
         
@@ -29,7 +47,8 @@ export default async function sitemap() {
         {url: `${baseUrl}/termsAndConditions`, lastModified: new Date()},
 
 
-        ...res
+        ...res,
+        ...resMa
 
     ]
 }

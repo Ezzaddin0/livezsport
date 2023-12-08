@@ -4,6 +4,7 @@ import "keen-slider/keen-slider.min.css"
 import { Card, CardHeader, CardBody, CardFooter, Image } from '@nextui-org/react'
 import Link from 'next/link'
 // import { Metadata } from 'next'
+import Script from 'next/script'
 
 export const metadata = {
   title: 'News',
@@ -36,7 +37,8 @@ const page = async () => {
 
   return (
     <div className=''>
-      
+      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9613838390292158"
+     crossOrigin="anonymous"/>
       <div className='CardNews grid gap-3 py-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
         {News.articles.map((data,index) => {       
              
