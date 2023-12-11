@@ -115,53 +115,53 @@ const CarouselGroup = ({ DataMatch }: any) => {
         </div>
 
         <div ref={ref} className="keen-slider mb-4 !hidden max-md:!flex" style={{ height: 300 }}>
-            <div className="keen-slider__slide number-slide1">
-            <Card fullWidth={true}>
-                        <CardHeader className="flex gap-3">
-                            <User   
-                            name="Jane Doe"
-                            description="Product Designer"
-                            avatarProps={{
-                                src: "https://media.api-sports.io/football/teams/442.png"
-                            }}
-                            />
-                        </CardHeader>
-                        <Divider/>
-                        <CardBody className=' justify-center'>
-                            <div className=' flex justify-between items-center'>
-                                <div>
-                                    <Image
-                                    src='https://media.api-sports.io/football/teams/442.png'
-                                    alt=''
-                                    width={64}
-                                    height={64}
-                                    />
-                                    <p>Messai</p>
-                                </div>
+        {live.map((data: { league: { country: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; name: any; round: any; flag: any; logo: any; }; teams: { home: { id: any; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; away: { id: any; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; }; goals: { home: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; away: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; fixture: { status: { elapsed: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }; }; },index: React.Key | null | undefined) => {
 
-                                <div className=' flex flex-col items-center gap-3'>
-                                    <p className=' text-4xl'>5 - 1</p>
-                                    <p className=' bg-blue-900 px-6 py-1 rounded-2xl'>87&apos;</p>
-                                </div>
+        return (
+        <div key={index} className="keen-slider__slide number-slide1 rounded-sm !min-w-[50%] !max-w-[100%]">
+        <Card fullWidth={true}>
+            <CardHeader className="flex gap-3">
+                <User   
+                name={data.league.country}
+                description={`${data.league.name} - ${data.league.round}`}
+                avatarProps={{
+                    src: data.league.flag || data.league.logo
+                }}
+                />
+            </CardHeader>
+            <Divider/>
+            <CardBody className=' justify-center'>
+                <div className=' flex justify-between items-center'>
+                    <div>
+                        <Image
+                        src={`https://media-4.api-sports.io/football/teams/${data.teams.home.id}.png`}
+                        alt=''
+                        width={64}
+                        height={64}
+                        />
+                        <p>{data.teams.home.name}</p>
+                    </div>
 
-                                <div>
-                                    <Image
-                                    src='https://media.api-sports.io/football/teams/442.png'
-                                    alt=''
-                                    width={64}
-                                    height={64}
-                                    />
-                                    <p>Messai</p>
-                                </div>
-                        </div>
-                        </CardBody>
-                    </Card>
+                    <div className=' flex flex-col items-center gap-3'>
+                        <p className=' text-4xl'>{data.goals.home} - {data.goals.away}</p>
+                        <p className=' bg-blue-900 px-6 py-1 rounded-2xl'>{data.fixture.status.elapsed}&apos;</p>
+                    </div>
+
+                    <div>
+                        <Image
+                        src={`https://media-4.api-sports.io/football/teams/${data.teams.away.id}.png`}
+                        alt=''
+                        width={64}
+                        height={64}
+                        />
+                        <p>{data.teams.away.name}</p>
+                    </div>
             </div>
-            <div className="keen-slider__slide number-slide2">2</div>
-            <div className="keen-slider__slide number-slide3">3</div>
-            <div className="keen-slider__slide number-slide4">4</div>
-            <div className="keen-slider__slide number-slide5">5</div>
-            <div className="keen-slider__slide number-slide6">6</div>
+            </CardBody>
+        </Card>
+        </div>
+        )
+        })}
         </div>
         </>
       )

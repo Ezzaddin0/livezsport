@@ -44,6 +44,7 @@ export default function RootLayout({
           crossOrigin="anonymous">
           </script>
         )}
+        <meta name="keywords" content="live football scores, football match analytics, football player analytics, football news, football stats, live sports scores, live match tracker, sports analytics, live soccer scores, football today, football matches today, live sports news, team news, player news, match reports, highlights, transfer news, fantasy football, betting tips, [Specific League] Live Scores, [Specific Match] Analytics, [Specific Player] Stats, [Specific Team] News, How to Analyze Football Matches, Best Football Analytics Tools, Top Football Players Today, Live football scores, Football analytics, Match analysis, Player statistics, Football news, Live match updates, Football score predictions, Player performance analysis, Football match statistics, Team rankings, Football highlights, Football news updates, Football data analysis, Player profiles, Football scorecards"/>
       </head>
       <body>
         <GoogleAnalytics/>
