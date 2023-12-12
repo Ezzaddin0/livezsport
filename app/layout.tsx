@@ -27,6 +27,18 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.livezsport.com"),
   alternates: {
     canonical: "https://www.livezsport.com"
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: false,
+      noimageindex: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   }
 }
 
