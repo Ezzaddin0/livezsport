@@ -29,6 +29,7 @@ const getNews = async () => {
   return res.json()
 }
 
+setInterval(getNews, 24 * 60 * 60 * 1000);
 
 const page = async () => {
 
