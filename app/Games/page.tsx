@@ -38,7 +38,6 @@ async function getMatch() {
  
   return res.json()
 }
-setInterval(getMatch, 24 * 60 * 60 * 1000);
 
 const page = async () => {
 

@@ -10,7 +10,7 @@ import Footer from './components/Footer'
 import GoogleAnalytics from "./GoogleAnalytics"
 
 const inter = Inter({ subsets: ['latin'] })
-
+export const revalidate = 1800 // revalidate at most every hour
 export const metadata: Metadata = {
   title: {
     default: "Livezsport.com - live soccer scores, football, and more ...",
